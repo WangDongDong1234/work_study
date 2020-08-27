@@ -1,4 +1,4 @@
-package rabbitmq.four;
+package rabbitmq.four.two;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Address;

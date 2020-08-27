@@ -1,4 +1,4 @@
-package rabbitmq.four;
+package rabbitmq.four.two;
 
 
 import com.rabbitmq.client.AMQP;
@@ -8,7 +8,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 import java.io.IOException;
-import java.util.Queue;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
@@ -51,8 +50,8 @@ public class RPCClient {
 
     public static void main(String args[]) throws Exception {
         RPCClient fibRpc=new RPCClient();
-        System.out.println("[X] Requesting fib(30)");
-        String response=fibRpc.call("30");
+        System.out.println("[X] Requesting fib(40)");
+        String response=fibRpc.call("40");
         System.out.println("[.] Got'"+response+"'");
         fibRpc.close();
     }

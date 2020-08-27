@@ -58,11 +58,11 @@ public class RabbitConsumer {
             }
         };
         //1.推消息
-        //channel.basicConsume(QUEUE_NAME,true, consumer);
+        channel.basicConsume(QUEUE_NAME,true, consumer);
         //2。拉去消息
-        GetResponse response=channel.basicGet(QUEUE_NAME,false);
-        System.out.println(new String(response.getBody()));
-        channel.basicAck(response.getEnvelope().getDeliveryTag(),false);
+//        GetResponse response=channel.basicGet(QUEUE_NAME,false);
+//        System.out.println(new String(response.getBody()));
+//        channel.basicAck(response.getEnvelope().getDeliveryTag(),false);
         //等待回调函数执行完毕之后， 关闭资源
         TimeUnit.SECONDS.sleep(5);
         channel.close();

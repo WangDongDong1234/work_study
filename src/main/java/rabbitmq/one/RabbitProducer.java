@@ -21,7 +21,7 @@ public class RabbitProducer {
     private static final int PORT = 5672;//RabbitMQ服务端默认端口号为5672
 
     public static void main(String[] args) throws IOException, TimeoutException, NoSuchAlgorithmException, KeyManagementException, URISyntaxException {
-        producer2();
+        producer1();
         return;
     }
 
@@ -67,9 +67,9 @@ public class RabbitProducer {
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
         //发送一条持久化的消息： hello world !
         String message = "mandatory test";
-//        channel.basicPublish(EXCHANGE_NAME, "",true,
-//                MessageProperties.PERSISTENT_TEXT_PLAIN,
-//                message.getBytes());
+        channel.basicPublish(EXCHANGE_NAME, "",true,
+                MessageProperties.PERSISTENT_TEXT_PLAIN,
+                message.getBytes());
         channel.addReturnListener(new ReturnListener() {
             public void handleReturn(int i, String s, String s1, String s2, AMQP.BasicProperties basicProperties, byte[] bytes) throws IOException {
                 String message=new String(bytes);
